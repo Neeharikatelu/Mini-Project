@@ -1,73 +1,137 @@
 # Hypergraph-Based Analysis of ERC-721 Token Transactions on Ethereum
 
-## Overview
-This project analyzes Ethereum's ERC-721 token transactions using hypergraph theory to uncover patterns in NFT trades. Initially, traditional graph theory was used, but due to its limitations in capturing only pairwise interactions, hypergraphs were employed to better represent multi-party interactions. By treating each unique token address as a hyperedge, we extract insights into how addresses interact over time.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python Badge"/>
+  <img src="https://img.shields.io/badge/Blockchain-Ethereum-black.svg" alt="Blockchain Badge"/>
+  <img src="https://img.shields.io/badge/Graph%20Theory-Hypergraph-red.svg" alt="Hypergraph Badge"/>
+  <img src="https://img.shields.io/badge/NFT-ERC721-purple.svg" alt="NFT Badge"/>
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License Badge"/>
+</p>
 
-## Limitations of Traditional Graphs
-While traditional graph methods provided valuable insights into the number of wallets and transactions, they had significant limitations:
-- Inability to capture multi-wallet interactions: Traditional graphs only depict pairwise relationships, failing to show how multiple wallets participate in a single transaction.
-- Lack of token-specific insights: They do not effectively capture which tokens were transferred between wallets or how token interactions evolved over time.
-- Higher-order transaction complexity: Traditional graphs struggle to represent higher-order relationships where multiple participants engage in a single transaction.
-- No community detection: We can analyze wallets and transactions, but we cannot determine which tokens were exchanged between a set of wallets over time.
+---
 
-These limitations led to the adoption of hypergraphs, which enable a more comprehensive representation of multi-wallet transactions in NFT trading.
+## 📌 Overview
+This project presents a comprehensive analysis of Ethereum's ERC-721 token (NFT) transactions using **hypergraph theory** to capture complex, multi-party interactions in the NFT ecosystem. Traditional graph theory, which only captures pairwise relationships, was found insufficient — leading to the adoption of hypergraphs.
 
-## Dataset
-The dataset comprises Ethereum NFT transactions from 2015 to 2024, including:
-- Block number
-- Timestamp
-- Transaction hash
-- Sender & recipient addresses
-- Flags for smart contracts
+By treating each **token** as a **hyperedge** and participating **wallets** as **nodes**, this project uncovers hidden patterns, community structures, and temporal dynamics in NFT trading behavior.
 
-## Preprocessing Steps
-- Timestamp conversion to `yy-mm-dd` format
-- Splitting transaction files by day
-- Labeling addresses
+---
 
-## Hypergraph Construction
-Each unique token address represents a hyperedge, and the interacting wallet addresses form nodes.
-- Daily hypergraph generation from transaction data
-- Node degrees indicate the number of days a wallet is active
-- Contract vs. user behavior is analyzed by identifying contract-associated addresses
+## ⚡ Limitations of Traditional Graphs
+-  Only captures pairwise relationships — missing multi-wallet transactions.
+-  No token-specific insights.
+-  Hard to model higher-order (group) interactions.
+-  Community detection between wallets is difficult.
 
-## Analysis and Findings
-- Temporal evolution of NFT trades across years
-- Degree distribution of nodes (wallets)
-- Identification of influential nodes in NFT transactions
-- Behavioral differences between EOAs and smart contracts
-- Filtering anomalous accounts that act as both smart contracts and EOAs
+Thus, **hypergraph modeling** provides a better and deeper understanding of NFT ecosystems.
 
-## Tools & Technologies Used
-- Python, Pandas, NumPy, NetworkX
-- Hypergraph libraries for analysis
-- Matplotlib, Seaborn for visualization
+---
 
-## Future Work
-I am focusing on analyzing the temporal-topological properties of higher-order evolving networks, studying how NFT transaction structures change over time and identifying key trends in NFT market evolution.
+## 📊 Dataset
+- **Source:** Ethereum blockchain (XBlock-ETH Dataset)
+- **Duration:** 2015 – 2024
+- **Fields:**
+  - Block Number
+  - Timestamp
+  - Transaction Hash
+  - Sender and Recipient Addresses
+  - Smart Contract Flags
 
-## How to Run
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/your-username/hypergraph-nft-analysis.git
-   ```
-2. Install dependencies:
-   ```sh
-   pip install -r requirements.txt
-   ```
-3. Run the preprocessing script:
-   ```sh
-   python preprocess.py
-   ```
-4. Generate hypergraphs:
-   ```sh
-   python construct_hypergraph.py
-   ```
-5. Perform analysis:
-   ```sh
-   python analyze.py
-   ```
+---
 
-## Contribution
-Feel free to open issues or contribute via pull requests! 🚀
+## 🛠️ Preprocessing Steps
+- Converted Unix timestamps to `yy-mm-dd` format.
+- Split the dataset into **daywise files**.
+- Labeled Ethereum addresses for easy tracking.
+- Structured data to fit hypergraph construction format.
 
+---
+
+## 🔗 Hypergraph Construction
+- **Tokens** are treated as **hyperedges**.
+- **Wallet addresses** are treated as **nodes**.
+- For each day:
+  - Hypergraphs were created connecting wallets participating in token transfers.
+- Stored hypergraphs in **JSON** format for efficient analysis.
+
+---
+
+## 📈 Analytical Steps
+- **Token vs Days Analysis:** Tracked number of tokens transferred daily.
+- **Hyperedge Classification:** Counted 1-hyperedges, 2-hyperedges, 3-hyperedges, etc.
+- **Recurring Community Detection:** Tracked recurring sets of wallets interacting across different days.
+- **Temporal Distance Analysis:** Calculated time gaps between repeated community appearances.
+- **s-Adjacency Analysis:** Checked if hyperedges share s common nodes.
+- **s-Component Detection:** Detected community clusters by analyzing s-connected hyperedges.
+
+---
+
+## 🏆 Results and Key Insights
+- Temporal evolution of NFT trades mapped from 2015–2024.
+- Degree distributions followed power-law behavior.
+- Strong recurring communities were detected.
+- Major s-components revealed strong wallet clusters.
+
+---
+
+## 🧰 Tools & Technologies Used
+- **Python 3.10+**
+- **Pandas**, **NumPy** — Data processing
+- **NetworkX**, **HyperNetX** — Graph and Hypergraph modeling
+- **Matplotlib**, **Seaborn** — Visualization
+- **JSON** — Data storage
+
+---
+
+## 📂 Folder Structure
+/data ├── Daywise transaction files ├── Hypergraph JSON files /scripts ├── Data preprocessing scripts ├── Hypergraph construction scripts ├── Analysis and visualization scripts /results ├── Graphs, plots, community detection results
+
+yaml
+Copy
+Edit
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/ethereum-hypergraph-analysis.git
+cd ethereum-hypergraph-analysis
+
+```
+### 2. Install Requirements
+Install the required Python libraries:
+```
+pip install -r requirements.txt
+requirements.txt:
+```
+
+numpy>=2.2.5
+pandas>=2.2.2
+networkx>=3.3
+hypernetx>=2.4.0
+matplotlib>=3.10.1
+seaborn>=0.13.2
+
+### 3. Run Scripts
+Preprocess transaction data
+Create daily hypergraphs
+Perform hypergraph analyses
+
+### 4. Visualize and Analyze
+Plot token transfers over time
+Track recurring wallet groups
+Analyze temporal distances
+Detect s-components and communities
+
+✍️ Author
+Neeharika Telu
+Roll No: CS21B1029
+B.Tech in Computer Science and Engineering
+Indian Institute of Information Technology, Raichur
+
+👨‍🏫 Supervisor
+Dr. Priodyuti Pradhan
+Department of Computer Science and Engineering
+Indian Institute of Information Technology, Raichur
