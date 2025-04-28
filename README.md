@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/Blockchain-Ethereum-black.svg" alt="Blockchain Badge"/>
   <img src="https://img.shields.io/badge/Graph%20Theory-Hypergraph-red.svg" alt="Hypergraph Badge"/>
   <img src="https://img.shields.io/badge/NFT-ERC721-purple.svg" alt="NFT Badge"/>
-  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License Badge"/>
+  
 </p>
 
 ---
