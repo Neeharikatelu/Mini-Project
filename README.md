@@ -107,31 +107,34 @@ pip install -r requirements.txt
 requirements.txt:
 ```
 
-numpy>=2.2.5
-pandas>=2.2.2
-networkx>=3.3
-hypernetx>=2.4.0
-matplotlib>=3.10.1
-seaborn>=0.13.2
+### Required Libraries
+- `numpy>=2.2.5`
+- `pandas>=2.2.2`
+- `networkx>=3.3`
+- `hypernetx>=2.4.0`
+- `matplotlib>=3.10.1`
+- `seaborn>=0.13.2`
 
 ### 3. Run Scripts
-Preprocess transaction data
-Create daily hypergraphs
-Perform hypergraph analyses
+- Preprocess transaction data
+- Create daily hypergraphs
+- Perform hypergraph analyses
 
 ### 4. Visualize and Analyze
-Plot token transfers over time
-Track recurring wallet groups
-Analyze temporal distances
-Detect s-components and communities
+- Plot token transfers over time
+- Track recurring wallet groups
+- Analyze temporal distances
+- Detect s-components and communities
 
-✍️ Author
-Neeharika Telu
-Roll No: CS21B1029
-B.Tech in Computer Science and Engineering
+---
+
+✍️ **Author**  
+Neeharika Telu  
+Roll No: CS21B1029  
+B.Tech in Computer Science and Engineering  
 Indian Institute of Information Technology, Raichur
 
-👨‍🏫 Supervisor
-Dr. Priodyuti Pradhan
-Department of Computer Science and Engineering
+👨‍🏫 **Supervisor**  
+Dr. Priodyuti Pradhan  
+Department of Computer Science and Engineering  
 Indian Institute of Information Technology, Raichur
